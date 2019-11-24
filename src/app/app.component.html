@@ -2,17 +2,24 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card card-body">
-        <form (submit)="submitLocation(cityname,contrycode)">
-          <img src="assets/img/clima.png" alt=""  width="500" height="500">
-          <input type="text" class="form-control" placeholder="City Name">
-          <input type="text" class="form-control" placeholder="Contry Code">
+        <form (submit)="submitLocation(cityName,contryCode)">
+          <img src="assets/img/mundo.png" alt=""  width="500" height="500" class="mx-auto">
+          <input type="text" class="form-control" placeholder="City Name" #cityName>
+          <input type="text" class="form-control" placeholder="Contry Code" #contryCode>
           <button class="btn btn-primary btn-block mt-2">Get Weather</button>
-
         </form>
       </div>
     </div>
     <div class="col-md-6">
-
+      <div *ngIf="weather" class="card card-body">
+        <p>Name city: {{weather.name}}</p>
+        <p>Temperatute: {{weather.main.temp}}</p>
+        <p>Latitude: {{weather.coord.lat}}</p>
+        <p>Longitude: {{weather.coord.lon}}</p>
+        <p>Humidity: {{weather.min.humidity}}</p>
+        <p>Pressure:{{weather.main.pressure}}</p>
+        <p>Descripcion{{weather.weather[0].description}}</p>
+      </div>
     </div>
   </div>
 </div>
