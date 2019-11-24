@@ -30,10 +30,15 @@ export class AppComponent  implements OnInit{
   }
   submitLocation(cityName: HTMLInputElement,contryCode: HTMLInputElement){
     // console.log(cityName.value,contryCode.value);
-    this.getWeather(cityName.value,contryCode.value)
-    cityName.value = '';
-    contryCode.value = '';
-    cityName.focus();
+    if ( cityName.value && contryCode.value ) {
+      this.getWeather(cityName.value,contryCode.value)
+      cityName.value = '';
+      contryCode.value = '';
+     
+    }else{
+      alert('Please inserte some value')
+    }
+     cityName.focus();
     return false;
   }
 }
